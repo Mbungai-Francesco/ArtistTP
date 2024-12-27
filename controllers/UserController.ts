@@ -1,5 +1,6 @@
 import { db } from '../lib/db';
 import { Request, Response } from 'express';
+import { generateToken } from '../utils/jwt';
 
 export const CreateUser = async (req: Request, res: Response) => {
   try {
@@ -136,7 +137,9 @@ export const loginUser = async (req: Request, res: Response) => {
       return res.status(400).json({ message: 'Invalid password' });
     }
 
-    return res.status(200).json({ message: 'User logged in', data: user });
+    const token = generateToken(user.id);
+
+    return res.status(200).json({ message: 'User logged in', token, data: user });
   } catch (error: any) {
     console.log(error.message);
     return res.status(500).json({ message: 'Internal Server Error' });

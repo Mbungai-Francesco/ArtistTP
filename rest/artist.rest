@@ -1,13 +1,19 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzUyNjUyNDIsImV4cCI6MTczNTM1MTY0Mn0.dB7ARYXTq0HIGz0l87lqYrJka9m1uritAE851cRdFMU
+
+
 ## GET all artists
 GET http://localhost:5000/api/artists
+Authorization: Bearer {{token}}
 
 ### GET an artist
 GET http://localhost:5000/api/artists/676de9d8108c545224fb333f
+Authorization: Bearer {{token}}
 
 
 ### ADD an artist
 POST http://localhost:5000/api/artists
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
     "image": "image-url",
@@ -22,6 +28,7 @@ Content-Type: application/json
 ### UPDATE STATUS OF A FRIEND
 PUT http://localhost:5000/api/artists/676de9d8108c545224fb333f
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
     "image": "image-url",
@@ -38,3 +45,4 @@ Content-Type: application/json
 ###DELETE A FRIEND
 DELETE http://localhost:5000/api/artists/676de9d8108c545224fb333f
 Content-Type: application/json
+Authorization: Bearer {{token}}

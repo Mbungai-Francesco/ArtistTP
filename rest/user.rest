@@ -1,17 +1,22 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzUyNjUyNDIsImV4cCI6MTczNTM1MTY0Mn0.dB7ARYXTq0HIGz0l87lqYrJka9m1uritAE851cRdFMU
+
 ## GET all artists
 GET http://localhost:5000/api/users
+Authorization: Bearer {{token}}
 
 ### GET a user
 GET http://localhost:5000/api/users/676dee5ca492082befb2031e
+Authorization: Bearer {{token}}
 
 
 ### ADD a user
 POST http://localhost:5000/api/users
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "name": "Mirabele Mbungai",
-  "email": "mbungaimirabele@gmail.com",
+  "name": "Maria Mbungai",
+  "email": "mbungaimaria@gmail.com",
   "password": "root2",
   "dateofbirth": "1986-12-03T00:00:00.000Z"
 }
@@ -19,6 +24,7 @@ Content-Type: application/json
 ### UPDATE a user
 PUT http://localhost:5000/api/users/676dee5ca492082befb2031e
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "name": "Mirabele Kiwo",
@@ -31,10 +37,12 @@ Content-Type: application/json
 ###DELETE A user
 DELETE http://localhost:5000/api/users/676dee5ca492082befb2031e
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 ###Login User
 POST http://localhost:5000/api/login
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "email": "mbungaimirabele@gmail.com",
