@@ -19,7 +19,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@prisma/client": "^5.18.0",
+    "@prisma/client": "^5.22.0",
     "@types/cors": "^2.8.17",
     "artist-backend": "file:",
     "cloudinary": "^2.4.0",

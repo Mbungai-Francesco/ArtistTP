@@ -1,0 +1,40 @@
+## GET all artists
+GET http://localhost:5000/api/artists
+
+### GET an artist
+GET http://localhost:5000/api/artists/676de9d8108c545224fb333f
+
+
+### ADD an artist
+POST http://localhost:5000/api/artists
+Content-Type: application/json
+
+{
+    "image": "image-url",
+    "name": "Melchi Loic",
+    "stageName": "Bricky",
+    "numOfAlbums": 0,
+    "recordLabel": "Libra",
+    "publishingHouse": "Publishing House Name",
+    "startDate": "2023-10-01T00:00:00.000Z"
+}
+
+### UPDATE STATUS OF A FRIEND
+PUT http://localhost:5000/api/artists/676de9d8108c545224fb333f
+Content-Type: application/json
+
+{
+    "image": "image-url",
+    "name": "Melchi Loic",
+    "stageName": "Bricky Invok",
+    "numOfAlbums": 2,
+    "mediaLinks": [],
+    "recordLabel": "Libra",
+    "publishingHouse": "Publishing House Name",
+    "startDate": "2023-10-01T00:00:00.000Z"
+}
+
+
+###DELETE A FRIEND
+DELETE http://localhost:5000/api/artists/676de9d8108c545224fb333f
+Content-Type: application/json

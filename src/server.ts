@@ -3,6 +3,9 @@ require('dotenv').config();
 
 // import StudentInClassRoutes from '../routes/StudetnInClassRoutes';
 import cors from 'cors';
+import ArtistRoutes from '../routes/ArtistRoutes';
+import UserRoutes from '../routes/UserRoutes';
+import RatingRoutes from '../routes/RatingRoutes';
 
 const app = express();
 
@@ -10,8 +13,14 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Welcome to ATLAS API services...' });
+  res.json({ message: 'Welcome to Artist API services...' });
 });
+
+app.use('/api', 
+  ArtistRoutes,
+  UserRoutes,
+  RatingRoutes
+);
 
 app.get('*', (req: Request, res: Response) => {
   res.status(404).json({ message: 'You are OUT OF BOUNDARIES!!!' });

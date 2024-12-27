@@ -13,14 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Student and Admin model
-// a student can be in many classrooms
 model User {
   id                String      @id @default(auto()) @map("_id") @db.ObjectId
   name              String
   dateofbirth       DateTime
   email             String      @unique
-  password          String      @unique
+  password          String
   createdAt         DateTime    @default(now())
   updatedAt         DateTime    @updatedAt
 }
@@ -47,10 +45,12 @@ model Artist {
 
 model Rating{
   id                String       @id @default(auto()) @map("_id") @db.ObjectId
-  artistId          String       @db.ObjectId
+  artistId          String       @db.ObjectId 
   artist            Artist       @relation(fields: [artistId], references: [id], onDelete: Cascade)
   userId            String       @db.ObjectId
   rate              Int          @default(0)
   createdAt         DateTime     @default(now())
   updatedAt         DateTime     @updatedAt
+
+  @@unique([artistId, userId])
 }

@@ -1,0 +1,31 @@
+## GET all artists
+GET http://localhost:5000/api/ratings
+
+### GET a rating
+GET http://localhost:5000/api/ratings/676df6f46a5f07430a6dbb3a
+
+
+### ADD an rating
+POST http://localhost:5000/api/ratings
+Content-Type: application/json
+
+{
+  "userId": "676dee5ca492082befb2031e",
+  "rate": 2,
+  "artistId": "676df87fe9bf0626637df8fc"
+}
+
+### UPDATE rate of a rating
+PUT http://localhost:5000/api/ratings/676df6f46a5f07430a6dbb3a
+Content-Type: application/json
+
+{
+  "userId": "676dee5ca492082befb2031e",
+  "rate": 4,
+  "artistId": "676de9d8108c545224fb333f"
+}
+
+
+###DELETE A rating
+DELETE http://localhost:5000/api/ratings/676dee5ca492082befb2031e
+Content-Type: application/json
