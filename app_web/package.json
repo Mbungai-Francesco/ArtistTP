@@ -19,6 +19,9 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "app-web": "file:",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "lucide-angular": "^0.469.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

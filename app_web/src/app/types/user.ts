@@ -7,7 +7,8 @@ export interface User{
   email          :   string      
   password       :   string
   followingIds   :   string[]    
-  followings     :   Artist[]    
+  followings     :   Artist[] 
+  jwt           ?:   string   
   createdAt      :   Date    
   updatedAt      :   Date  
 }
