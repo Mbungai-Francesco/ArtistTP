@@ -44,7 +44,11 @@ export const CreateUser = async (req: Request, res: Response) => {
 
 export const GetUsers = async (req: Request, res: Response) => {
   try {
-    const users = await db.user.findMany();
+    const users = await db.user.findMany({
+      include: {
+        followings: true
+      }
+    });
     if (!users || users.length === 0) {
       return res.status(404).json({ message: 'No users found' });
     }
@@ -62,6 +66,9 @@ export const GetUser = async (req: Request, res: Response) => {
       where: {
         id: id,
       },
+      include: {
+        followings: true
+      }
     });
 
     if (!user) {

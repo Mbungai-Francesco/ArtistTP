@@ -19,6 +19,8 @@ model User {
   dateofbirth       DateTime
   email             String      @unique
   password          String
+  followingIds      String[]    @db.ObjectId
+  followings        Artist[]    @relation(fields: [followingIds], references: [id])
   createdAt         DateTime    @default(now())
   updatedAt         DateTime    @updatedAt
 }
@@ -35,6 +37,8 @@ model Artist {
   recordLabel       String
   publishingHouse   String
   startDate         DateTime
+  followers         User[]       @relation(fields: [followerIds], references: [id])
+  followerIds       String[]     @db.ObjectId
   createdAt         DateTime     @default(now())
   updatedAt         DateTime     @updatedAt
 }

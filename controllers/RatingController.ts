@@ -158,7 +158,7 @@ export const findRating = async (req: Request, res: Response) => {
 
 export const artistRatings = async (req: Request, res: Response) =>{
   try {
-    const { artistId } = await req.body;
+    const { artistId } = req.params;
 
     if (!artistId) {
       return res.status(400).json({

@@ -46,7 +46,11 @@ export const CreateArtist = async (req: Request, res: Response) => {
 
 export const GetArtists = async (req: Request, res: Response) => {
   try {
-    const artists = await db.artist.findMany();
+    const artists = await db.artist.findMany({
+      include :{
+        followers: true
+      }
+    });
     if (!artists || artists.length === 0) {
       return res.status(404).json({ message: 'No artist found' });
     }
@@ -64,6 +68,9 @@ export const GetArtist = async (req: Request, res: Response) => {
       where: {
         id: id,
       },
+      include :{
+        followers: true
+      }
     });
 
     if (!artist) {

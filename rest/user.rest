@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzUyNjUyNDIsImV4cCI6MTczNTM1MTY0Mn0.dB7ARYXTq0HIGz0l87lqYrJka9m1uritAE851cRdFMU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzU3MzQyNzIsImV4cCI6MTczNTgyMDY3Mn0.9XHxw6In0l9XZF8l0z37Pm18ewVJy9qQ-VCfY1-CKqY
 
 ## GET all artists
 GET http://localhost:5000/api/users
@@ -42,7 +42,6 @@ Authorization: Bearer {{token}}
 ###Login User
 POST http://localhost:5000/api/login
 Content-Type: application/json
-Authorization: Bearer {{token}}
 
 {
   "email": "mbungaimirabele@gmail.com",
