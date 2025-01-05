@@ -8,6 +8,8 @@ import ArtistRoutes from '../routes/ArtistRoutes';
 import UserRoutes from '../routes/UserRoutes';
 import RatingRoutes from '../routes/RatingRoutes';
 import LoginRoute from '../routes/LoginRoute';
+import ArtistRatingsRoute from '../routes/ArtistRatingsRoute';
+import RateRoute from '../routes/RateRoutes';
 
 const app = express();
 
@@ -23,7 +25,9 @@ app.use('/api',
   authenticateToken,
   ArtistRoutes,
   UserRoutes,
-  RatingRoutes
+  RatingRoutes,
+  ArtistRatingsRoute,
+  RateRoute
 );
 
 app.get('*', (req: Request, res: Response) => {

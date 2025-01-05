@@ -12,13 +12,15 @@ const ArtistRoutes_1 = __importDefault(require("../routes/ArtistRoutes"));
 const UserRoutes_1 = __importDefault(require("../routes/UserRoutes"));
 const RatingRoutes_1 = __importDefault(require("../routes/RatingRoutes"));
 const LoginRoute_1 = __importDefault(require("../routes/LoginRoute"));
+const ArtistRatingsRoute_1 = __importDefault(require("../routes/ArtistRatingsRoute"));
+const RateRoutes_1 = __importDefault(require("../routes/RateRoutes"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to Artist API services...' });
 });
-app.use('/api', LoginRoute_1.default, auth_1.authenticateToken, ArtistRoutes_1.default, UserRoutes_1.default, RatingRoutes_1.default);
+app.use('/api', LoginRoute_1.default, auth_1.authenticateToken, ArtistRoutes_1.default, UserRoutes_1.default, RatingRoutes_1.default, ArtistRatingsRoute_1.default, RateRoutes_1.default);
 app.get('*', (req, res) => {
     res.status(404).json({ message: 'You are OUT OF BOUNDARIES!!!' });
 });
