@@ -20,7 +20,7 @@ Authorization: Bearer {{token}}
   "password": "root2",
   "dateofbirth": "1986-12-03T00:00:00.000Z"
 }
-
+ 
 ### UPDATE a user
 PUT http://localhost:5000/api/users/676dee5ca492082befb2031e
 Content-Type: application/json
