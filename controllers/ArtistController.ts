@@ -49,7 +49,8 @@ export const GetArtists = async (req: Request, res: Response) => {
   try {
     const artists = await db.artist.findMany({
       include :{
-        followers: true
+        followers: true,
+        ratings: true
       }
     });
     if (!artists || artists.length === 0) {
@@ -70,7 +71,8 @@ export const GetArtist = async (req: Request, res: Response) => {
         id: id,
       },
       include :{
-        followers: true
+        followers: true,
+        ratings: true
       }
     });
 

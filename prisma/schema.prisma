@@ -32,7 +32,8 @@ model Artist {
   name              String       
   stageName         String       @unique  
   numOfAlbums       Int          @default(0)
-  ratings           Rating[]  
+  ratings           Rating[]     
+  // ratingsIds        String[]     @db.ObjectId  
   mediaLinks        String[]
   recordLabel       String
   publishingHouse   String
