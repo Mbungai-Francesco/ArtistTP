@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteArtist = exports.UpdateArtist = exports.GetArtist = exports.GetArtists = exports.CreateArtist = void 0;
 const db_1 = require("../lib/db");
+// import { VercelRequest as Request, VercelResponse as Response } from '@vercel/node'
 const CreateArtist = async (req, res) => {
     try {
         const { stageName } = await req.body;
