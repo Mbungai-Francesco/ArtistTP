@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Artist } from './types';
+import { ArtistService } from './services/artist/artist.service';
 
 @Component({
   selector: 'app-root',

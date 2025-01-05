@@ -1,16 +1,16 @@
 import axios from "axios";
-import { port } from ".";
+import { link } from ".";
 import { Rating } from "../types";
 
 const route : string = "api/ratings"
 
-export const createRating = async (rating : Rating) => {
+export const createRating = async (rating : Rating, jwt : string) => {
   try{
     // console.log("Authorization Header:", config.headers); // Log the authorization header
-    const res = await axios.post(`http://localhost:${port}/${route}`, rating)
+    const res = await axios.post(`${link}/${route}`, rating)
     console.log("message", res.statusText);
-    console.log(res.data);
-    return res.data as Rating
+    console.log(res.data.data);
+    return res.data.data as Rating
   }
   catch(error){
     console.error('Error:', error);
@@ -18,11 +18,11 @@ export const createRating = async (rating : Rating) => {
   }
 }
 
-export const getRatings = async () => {
+export const getRatings = async (jwt : string) => {
   try{
-    const res = await axios.get(`http://localhost:${port}/${route}`)
-    console.log(res.data);
-    return res.data as Rating[]
+    const res = await axios.get(`${link}/${route}`)
+    console.log(res.data.data);
+    return res.data.data as Rating[]
   }
   catch(error){
     console.error('Error:', error);
@@ -30,11 +30,11 @@ export const getRatings = async () => {
   }
 }
 
-export const getRating = async (id : string) => {
+export const getRating = async (id : string, jwt : string) => {
   try{
-    const res = await axios.get(`http://localhost:${port}/${route}/${id}`)
-    console.log(res.data);
-    return res.data as Rating
+    const res = await axios.get(`${link}/${route}/${id}`)
+    console.log(res.data.data);
+    return res.data.data as Rating
   }
   catch(error){
     console.error('Error:', error);
@@ -42,11 +42,11 @@ export const getRating = async (id : string) => {
   }
 }
 
-export const updateRating = async (id : string, rating : Rating) => {
+export const updateRating = async (id : string, rating : Rating, jwt : string) => {
   try{
-    const res = await axios.put(`http://localhost:${port}/${route}/${id}`, rating)
-    console.log(res.data);
-    return res.data as Rating
+    const res = await axios.put(`${link}/${route}/${id}`, rating)
+    console.log(res.data.data);
+    return res.data.data as Rating
   }
   catch(error){
     console.error('Error:', error);
@@ -54,11 +54,11 @@ export const updateRating = async (id : string, rating : Rating) => {
   }
 }
 
-export const deleteRating = async (id : string) => {
+export const deleteRating = async (id : string, jwt : string) => {
   try{
-    const res = await axios.delete(`http://localhost:${port}/${route}/${id}`)
-    console.log(res.data);
-    return res.data as Rating
+    const res = await axios.delete(`${link}/${route}/${id}`)
+    console.log(res.data.data);
+    return res.data.data as Rating
   }
   catch(error){
     console.error('Error:', error);
@@ -66,11 +66,11 @@ export const deleteRating = async (id : string) => {
   }
 }
 
-export const artistRatings = async (artistId : string) => {
+export const artistRatings = async (artistId : string, jwt : string) => {
   try{
-    const res = await axios.get(`http://localhost:${port}/artist_ratings/${artistId}`)
-    console.log(res.data);
-    return res.data as Rating[]
+    const res = await axios.get(`${link}/artist_ratings/${artistId}`)
+    console.log(res.data.data);
+    return res.data.data as Rating[]
   }
   catch(error){
     console.error('Error:', error);

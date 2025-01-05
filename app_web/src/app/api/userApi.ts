@@ -1,16 +1,16 @@
 import axios from "axios";
-import { port } from ".";
+import { link, conf } from ".";
 import { User } from "../types";
-
+import { UserDto } from "../types/userDto";
 const route : string = "api/users"
 
-export const createUser = async (user : User) => {
+export const createUser = async (user : UserDto) => {
   try{
     // console.log("Authorization Header:", config.headers); // Log the authorization header
-    const res = await axios.post(`http://localhost:${port}/${route}`, user)
+    const res = await axios.post(`${link}/${route}`, user)
     console.log("message", res.statusText);
-    console.log(res.data);
-    return res.data as User
+    console.log(res.data.data);
+    return res.data.data as User
   }
   catch(error){
     console.error('Error:', error);
@@ -18,11 +18,11 @@ export const createUser = async (user : User) => {
   }
 }
 
-export const getUsers = async () => {
+export const getUsers = async (jwt : string) => {
   try{
-    const res = await axios.get(`http://localhost:${port}/${route}`)
-    console.log(res.data);
-    return res.data as User[]
+    const res = await axios.get(`${link}/${route}`,conf(jwt))
+    console.log(res.data.data);
+    return res.data.data as User[]
   }
   catch(error){
     console.error('Error:', error);
@@ -30,11 +30,11 @@ export const getUsers = async () => {
   }
 }
 
-export const getUser = async (id : string) => {
+export const getUser = async (id : string, jwt : string) => {
   try{
-    const res = await axios.get(`http://localhost:${port}/${route}/${id}`)
-    console.log(res.data);
-    return res.data as User
+    const res = await axios.get(`${link}/${route}/${id}`,conf(jwt))
+    console.log(res.data.data);
+    return res.data.data as User
   }
   catch(error){
     console.error('Error:', error);
@@ -42,11 +42,11 @@ export const getUser = async (id : string) => {
   }
 }
 
-export const updateUser = async (id : string, user : User) => {
+export const updateUser = async (id : string, user : User, jwt : string) => {
   try{
-    const res = await axios.put(`http://localhost:${port}/${route}/${id}`, user)
-    console.log(res.data);
-    return res.data as User
+    const res = await axios.put(`${link}/${route}/${id}`, user,conf(jwt))
+    console.log(res.data.data);
+    return res.data.data as User
   }
   catch(error){
     console.error('Error:', error);
@@ -54,11 +54,11 @@ export const updateUser = async (id : string, user : User) => {
   }
 }
 
-export const deleteUser = async (id : string) => {
+export const deleteUser = async (id : string, jwt : string) => {
   try{
-    const res = await axios.delete(`http://localhost:${port}/${route}/${id}`)
-    console.log(res.data);
-    return res.data as User
+    const res = await axios.delete(`${link}/${route}/${id}`,conf(jwt))
+    console.log(res.data.data);
+    return res.data.data as User
   }
   catch(error){
     console.error('Error:', error);
@@ -68,9 +68,11 @@ export const deleteUser = async (id : string) => {
 
 export const loginUser = async (email : string, password : string) => {
   try{
-    const res = await axios.post(`http://localhost:${port}/${route}/login`, {email, password})
+    const res = await axios.post(`${link}/api/login`, {email, password})
+    const user = res.data.data as User
+    user.jwt = res.data.token
     console.log(res.data);
-    return res.data as User
+    return user
   }
   catch(error){
     console.error('Error:', error);

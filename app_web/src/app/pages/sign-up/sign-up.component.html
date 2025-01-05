@@ -5,42 +5,60 @@
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
+          <div class="d-flex justify-content-center py-4">
+            <a href="index.html" class="logo d-flex align-items-center w-auto">
+              <img src="assets/img/logo.png" alt="">
+              <span class="d-none d-lg-block">NiceAdmin</span>
+            </a>
+          </div><!-- End Logo -->
+
           <div class="card mb-3">
 
             <div class="card-body">
 
               <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                <p class="text-center small">Enter your username & password to login</p>
+                <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                <p class="text-center small">Enter your personal details to create account</p>
               </div>
 
               <form class="row g-3 needs-validation" novalidate>
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="yourName" [(ngModel)]="name" required>
+                  <div class="text-danger" [hidden]="hiddens[0]">Please, enter your name!</div>
+                </div>
 
                 <div class="col-12">
-                  <label for="yourUsername" class="form-label">Email</label>
+                  <label for="yourEmail" class="form-label">Email</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-at" viewBox="0 0 16 16">
                         <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914"/>
                       </svg>
                     </span>
-                    <input type="text" name="email" class="form-control" id="yourEmail" [(ngModel)]="email" required>
-                    <div class="text-danger" [hidden]="hiddens[0]">Please enter a valid Email adddress!</div>
+                    <input type="email" name="email" class="form-control" id="yourEmail" [(ngModel)]="email" required>
+                    <div class="text-danger" [hidden]="hiddens[1]">Please enter a valid Email adddress!</div>
                   </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="yourDateOfBirth" class="form-label">Date of birth</label>
+                  <input type="date" name="dateOfBirth" class="form-control" id="yourDateOfBirth" [(ngModel)]="date" required>
+                  <div class="text-danger" [hidden]="hiddens[2]">Please enter a valid Date</div>
                 </div>
 
                 <div class="col-12">
                   <label for="yourPassword" class="form-label">Password</label>
                   <input type="password" name="password" class="form-control" id="yourPassword" [(ngModel)]="password" required>
-                  <div class="text-danger" [hidden]="hiddens[1]">Enter a password</div>
+                  <div class="text-danger" [hidden]="hiddens[3]">At least 5 characters</div>
                 </div>
 
                 <div class="col-12">
-                  <button class="btn btn-primary w-100" type="button" (click)="login()">Login</button>
+                  <button class="btn btn-primary w-100" type="button" (click)="signUp()">Create Account</button>
                 </div>
                 <div class="col-12">
-                  <p class="small mb-0">Don't have account? 
-                    <span class="text-primary text-decoration-underline" routerLink="/sign-up">Create an account</span>
+                  <p class="small mb-0">Already have an account? 
+                    <span class="text-primary text-decoration-underline" routerLink="/login">Log in</span>
                   </p>
                 </div>
               </form>
