@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "dist/src/server.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/login(.*)", "dest": "dist/src/server.js" },
+    { "src": "/api/users(.*)", "dest": "dist/src/server.js" },
+    { "src": "/api/artists(.*)", "dest": "dist/src/server.js" },
+    { "src": "/api/ratings(.*)", "dest": "dist/src/server.js" },
+    { "src": "/api/artist_ratings(.*)", "dest": "dist/src/server.js" },
+    { "src": "/api/rate(.*)", "dest": "dist/src/server.js" }
+  ]
+}
