@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzYwODEzODUsImV4cCI6MTczNjE2Nzc4NX0.TVaNwZSZZZQ9ItlpJLeNukAswd9vhDMGezqp0RJXmvA
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzYxMDg2NzEsImV4cCI6MTczNjE5NTA3MX0.suQy_HGgkNvXBGeA82tDonlzv3_RDBFyPqtwZ0C3Fd8
 
 
 ## GET all artists
@@ -11,38 +11,46 @@ Authorization: Bearer {{token}}
 
 
 ### ADD an artist
-POST http://localhost:5000/api/artists
+# POST http://localhost:5000/api/artists
+POST https://warm-reef-41256-e838c74ede11.herokuapp.com/api/artists
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "image": "image-url",
-    "name": "Melchi Loic",
-    "stageName": "Bricky",
-    "numOfAlbums": 0,
-    "recordLabel": "Libra",
-    "publishingHouse": "Publishing House Name",
-    "startDate": "2023-10-01T00:00:00.000Z"
+  "image": "https://res.cloudinary.com/dnaic03hs/image/upload/v1736106104/jkvnrgt5av7wluccajon.png",
+  "name": "Mbitimeh Mbah",
+  "stageName": "Dark zone",
+  "numOfAlbums": 5,
+  "recordLabel": "Libra",
+  "publishingHouse": "Libra",
+  "startDate": "2023-10-01T00:00:00.000Z",
+  "mediaLinks": ["dark_zone", "dark_zone"]
 }
 
 ### UPDATE STATUS OF A FRIEND
-PUT http://localhost:5000/api/artists/676de9d8108c545224fb333f
+PUT http://localhost:5000/api/artists/677aee13a83951631293a89c
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "image": "image-url",
-    "name": "Melchi Loic",
-    "stageName": "Bricky Invok",
-    "numOfAlbums": 2,
-    "mediaLinks": [],
+    "image": "https://res.cloudinary.com/dnaic03hs/image/upload/v1736106104/jkvnrgt5av7wluccajon.png",
+    "name": "Mbitimeh Mbah",
+    "stageName": "Dark zone",
+    "numOfAlbums": 3,
+    "mediaLinks": [
+      "dark_zone",
+      "dark_zone"
+    ],
     "recordLabel": "Libra",
-    "publishingHouse": "Publishing House Name",
-    "startDate": "2023-10-01T00:00:00.000Z"
-}
+    "publishingHouse": "Universal",
+    "startDate": "2023-10-01T00:00:00.000Z",
+    "followerIds": [],
+    "createdAt": "2025-01-05T19:48:19.473Z",
+    "updatedAt": "2025-01-05T19:48:19.473Z"
+  }
 
 
 ###DELETE A FRIEND
-DELETE http://localhost:5000/api/artists/676de9d8108c545224fb333f
+DELETE https://warm-reef-41256-e838c74ede11.herokuapp.com/api/artists/677ae2036964a623dbcad14d
 Content-Type: application/json
 Authorization: Bearer {{token}}

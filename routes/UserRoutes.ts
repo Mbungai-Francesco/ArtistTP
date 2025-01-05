@@ -12,7 +12,6 @@ const UserRoutes = express.Router();
 
 UserRoutes.get('/users', GetUsers);
 UserRoutes.get('/users/:id', GetUser);
-UserRoutes.post('/login', loginUser);
 UserRoutes.put('/users/:id', UpdateUser);
 UserRoutes.delete('/users/:id', DeleteUser);
 

@@ -7,7 +7,7 @@ import cors from 'cors';
 import ArtistRoutes from '../routes/ArtistRoutes';
 import UserRoutes from '../routes/UserRoutes';
 import RatingRoutes from '../routes/RatingRoutes';
-import LoginRoute from '../routes/LoginRoute';
+import {LoginRoute, UserRoute} from '../routes/LoginRoute';
 import ArtistRatingsRoute from '../routes/ArtistRatingsRoute';
 import RateRoute from '../routes/RateRoutes';
 
@@ -22,6 +22,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/api',
   LoginRoute, 
+  UserRoute,
   authenticateToken,
   ArtistRoutes,
   UserRoutes,

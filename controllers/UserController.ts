@@ -35,7 +35,8 @@ export const CreateUser = async (req: Request, res: Response) => {
     if (!createUser) {
       return res.status(400).json({ message: 'user not created' });
     }
-    return res.status(201).json({ message: 'User created', data: createUser });
+    const token = generateToken(createUser.id);
+    return res.status(201).json({ message: 'User created',token, data: createUser });
   } catch (error: any) {
     console.log(error.message);
     return res.status(500).json({ message: 'Internal Server Error' });

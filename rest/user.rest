@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzU3MzQyNzIsImV4cCI6MTczNTgyMDY3Mn0.9XHxw6In0l9XZF8l0z37Pm18ewVJy9qQ-VCfY1-CKqY
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZkZjdjNzZhNWYwNzQzMGE2ZGJiM2MiLCJpYXQiOjE3MzYxMTY5NTYsImV4cCI6MTczNjIwMzM1Nn0.YFCmC7vQI1F7-s1fdJb9myztIfHqtPw-pXdgwEKj9Bw
 
 ## GET all artists
 GET http://localhost:5000/api/users
@@ -12,13 +12,12 @@ Authorization: Bearer {{token}}
 ### ADD a user
 POST http://localhost:5000/api/users
 Content-Type: application/json
-Authorization: Bearer {{token}}
 
 {
-  "name": "Maria Mbungai",
-  "email": "mbungaimaria@gmail.com",
-  "password": "root2",
-  "dateofbirth": "1986-12-03T00:00:00.000Z"
+  "name": "Valere Kegni",
+  "email": "nzvalere@gmail.com",
+  "password": "root23",
+  "dateofbirth": "2003-10-17T00:00:00.000Z"
 }
  
 ### UPDATE a user
@@ -35,7 +34,7 @@ Authorization: Bearer {{token}}
 
 
 ###DELETE A user
-DELETE http://localhost:5000/api/users/676dee5ca492082befb2031e
+DELETE http://localhost:5000/api/users/677b0ac6327fb955afa58372
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
