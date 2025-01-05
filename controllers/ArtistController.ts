@@ -1,5 +1,6 @@
 import { db } from '../lib/db';
 import { Request, Response } from 'express';
+// import { VercelRequest as Request, VercelResponse as Response } from '@vercel/node'
 
 export const CreateArtist = async (req: Request, res: Response) => {
   try{
