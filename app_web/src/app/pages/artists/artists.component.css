@@ -36,3 +36,8 @@
 .rate-btn {
   margin-left: auto;
 }
+.btn-space{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

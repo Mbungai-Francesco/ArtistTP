@@ -3,10 +3,11 @@ import { User } from "./user"
 
 export interface Artist{
   id              :  string       // @id @default(auto()) @map("_id") @db.ObjectId
-  image           :  string       
+  image           ?:  string       
   name            :  string       
   stageName       :  string       // @unique  
   numOfAlbums     :  number          // @default(0)
+  rate            ?:  number
   ratings         :  Rating[]  
   mediaLinks      :  string[]
   recordLabel     :  string

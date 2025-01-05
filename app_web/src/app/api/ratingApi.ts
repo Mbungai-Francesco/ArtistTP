@@ -1,13 +1,14 @@
 import axios from "axios";
-import { link } from ".";
+import { conf, link } from ".";
 import { Rating } from "../types";
+import { RatingDto } from "../types/ratingDto";
 
 const route : string = "api/ratings"
 
-export const createRating = async (rating : Rating, jwt : string) => {
+export const createRating = async (rating : RatingDto, jwt : string) => {
   try{
     // console.log("Authorization Header:", config.headers); // Log the authorization header
-    const res = await axios.post(`${link}/${route}`, rating)
+    const res = await axios.post(`${link}/${route}`,rating,conf(jwt))
     console.log("message", res.statusText);
     console.log(res.data.data);
     return res.data.data as Rating
@@ -20,7 +21,7 @@ export const createRating = async (rating : Rating, jwt : string) => {
 
 export const getRatings = async (jwt : string) => {
   try{
-    const res = await axios.get(`${link}/${route}`)
+    const res = await axios.get(`${link}/${route}`,conf(jwt))
     console.log(res.data.data);
     return res.data.data as Rating[]
   }
@@ -32,7 +33,7 @@ export const getRatings = async (jwt : string) => {
 
 export const getRating = async (id : string, jwt : string) => {
   try{
-    const res = await axios.get(`${link}/${route}/${id}`)
+    const res = await axios.get(`${link}/${route}/${id}`,conf(jwt))
     console.log(res.data.data);
     return res.data.data as Rating
   }
@@ -44,7 +45,7 @@ export const getRating = async (id : string, jwt : string) => {
 
 export const updateRating = async (id : string, rating : Rating, jwt : string) => {
   try{
-    const res = await axios.put(`${link}/${route}/${id}`, rating)
+    const res = await axios.put(`${link}/${route}/${id}`,rating,conf(jwt))
     console.log(res.data.data);
     return res.data.data as Rating
   }
@@ -56,7 +57,7 @@ export const updateRating = async (id : string, rating : Rating, jwt : string) =
 
 export const deleteRating = async (id : string, jwt : string) => {
   try{
-    const res = await axios.delete(`${link}/${route}/${id}`)
+    const res = await axios.delete(`${link}/${route}/${id}`,conf(jwt))
     console.log(res.data.data);
     return res.data.data as Rating
   }
@@ -68,7 +69,7 @@ export const deleteRating = async (id : string, jwt : string) => {
 
 export const artistRatings = async (artistId : string, jwt : string) => {
   try{
-    const res = await axios.get(`${link}/artist_ratings/${artistId}`)
+    const res = await axios.get(`${link}/artist_ratings/${artistId}`,conf(jwt))
     console.log(res.data.data);
     return res.data.data as Rating[]
   }

@@ -24,7 +24,9 @@ export class ArtistService {
       this.artistsSubject.next(artists);
       localStorage.setItem('artists', JSON.stringify(artists));
     }
-    updateArtists(artists: Artist[]) {
+    updateArtist(num: number, artist: Artist) {
+      const artists = this.artistsSubject.getValue();
+      artists[num] = artist;
       this.setArtists(artists);
     }
 }

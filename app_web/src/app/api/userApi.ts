@@ -44,7 +44,7 @@ export const getUser = async (id : string, jwt : string) => {
 
 export const updateUser = async (id : string, user : User, jwt : string) => {
   try{
-    const res = await axios.put(`${link}/${route}/${id}`, user,conf(jwt))
+    const res = await axios.put(`${link}/${route}/${id}`,user,conf(jwt))
     console.log(res.data.data);
     return res.data.data as User
   }
