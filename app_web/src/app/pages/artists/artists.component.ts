@@ -25,6 +25,7 @@ export class ArtistsComponent {
   hidden = true
 
   artists: Artist[] = [];
+  filteredArtists: Artist[] = [];
   user!: User;
   hiddens = [true, true, true, true];
 
@@ -65,6 +66,8 @@ export class ArtistsComponent {
   deletingName = '';
   deletingId = '';
 
+  name = ''
+
   constructor(
     private artistsService: ArtistService,
     private userService: UserService
@@ -73,6 +76,7 @@ export class ArtistsComponent {
       this.user = res;
       artistsService.artists$.subscribe((res) => {
         this.artists = res;
+        this.filteredArtists = res;
         res.forEach((artist, num) => {
           console.log(artist);
 
@@ -104,6 +108,15 @@ export class ArtistsComponent {
         startDate: new Date(),
         mediaLinks: [],
       }
+  }
+
+  searchArtistByName(e: Event) {
+    const val = e.target as HTMLInputElement;
+    this.filteredArtists = this.artists.filter(
+      (artist) =>
+        artist.name.toLowerCase().includes(val.value.toLowerCase()) ||
+        artist.recordLabel.toLowerCase().includes(val.value.toLowerCase())
+    );
   }
 
   openFileExplorer(fileType: 'image' | 'video') {

@@ -9,8 +9,10 @@ export const createUser = async (user : UserDto) => {
     // console.log("Authorization Header:", config.headers); // Log the authorization header
     const res = await axios.post(`${link}/${route}`, user)
     console.log("message", res.statusText);
-    console.log(res.data.data);
-    return res.data.data as User
+    const use = res.data.data as User
+    use.jwt = res.data.token
+    console.log(res.data);
+    return use
   }
   catch(error){
     console.error('Error:', error);

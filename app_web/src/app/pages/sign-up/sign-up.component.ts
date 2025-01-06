@@ -37,13 +37,15 @@ export class SignUpComponent {
           this.hiddens[2] = true
           if(this.password.length > 5){
             this.hiddens[3] = true
-            console.log(this.email, this.password, this.name, this.date);
+            // console.log(this.email, this.password, this.name, this.date);
             const use : UserDto ={
               name:this.name,
               email:this.email,
               password:this.password,
-              dateofbirth:this.date
+              dateofbirth: new Date(this.date)
             }
+            console.log(use);
+            
             createUser(use).then((res)=>{
               if(res){
                 this.userService.setUser(res)
